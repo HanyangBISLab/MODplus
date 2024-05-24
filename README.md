@@ -1,6 +1,8 @@
 # MODplus
 ## Open search for post-translational modifications  
-
+Post-translational modifications regulate various cellular processes and are of great biological interest. Unrestrictive searches of mass spectrometry data enable the detection of any type of modification. 
+MODplus makes practical open searches possible by allowing (1) hundreds of modifications, (2) multiple modifications per peptide, (3) the whole proteome database, and (4) any tolerant values in search parameters.
+MODplus supports identifying different modification types at multiple sites and reports real chemical and biological modifications, as it has been very labor intensive to link unrestrictive search results to real modifications.
 <hr>
 
 
