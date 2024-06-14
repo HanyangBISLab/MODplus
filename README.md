@@ -30,7 +30,7 @@ Example2 : java -Xmx3000M -jar modplus.jar -i E:\data -odir E:\results
 
 	
 </pre>
-## 2. Parameters (See foo.txt file)
+## 2. Parameters (See modp.params file)
 <pre>
 - Spectra=[FILENAME|DIRECTORY]
   Specifies path to the spectra file or directory to search
