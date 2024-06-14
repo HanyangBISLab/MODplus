@@ -1,0 +1,113 @@
+# Spectra=[FILENAME|DIRECTORY]
+# Specifies path to the spectra file or directory to search
+# Supported formats: *.mgf, *.pkl, *.dta, *.ms2, *mzXML, *mzML 
+# Given a directory, all spectra files in it are searched. 
+Spectra= foo.mgf
+
+# Fragmentation=[1|2]
+# Specifies the type of MS/MS used (or best matched) for peptide fragmentation.
+# 1: CID, 2: HCD (Default value is 2)
+# According to the instrument type, different fragmentation models are be applied.
+Fragmentation=2
+
+# Fasta=[FILENAME]
+# Specifies path to the database file (*.fasta) to search
+Fasta= Human.fasta
+
+# MakeDecoy= [0|1] 
+# Sets the value to 1 to append decoy sequences to the original input fasta file. (Default value is 0)
+# Decoy protein prefix will be XXX_. 
+# A new fasta file will generated and its name ends with '_wplusDecoy.fasta'. MODplus wiil automatically run with the new fasta file.
+# Don't use if the input fasta from a user already includes decoy sequences.
+MakeDecoy=0
+
+# PeptTolerance=[VALUE][ppm|da]
+# Sets a precursor mass tolerance in ppm or dalton. (Default value is 10ppm)
+# e.g., PeptTolerance=15ppm or 0.5da
+PeptTolerance=10ppm
+
+# C13Isotope=[MIN],[MAX]
+# Sets the numbers of C13 (or isotope error) allowed in peptide masses. (Default values are -1,2)
+# 1.00235 Da is used as an isotope spacing
+C13Isotope=-1,2
+
+# FragTolerance=[VALUE][ppm|da]
+# Sets a fragment ion mass tolerance in ppm or dalton. (Default value is 20ppm)
+# e.g., FragTolerance=20ppm or 0.02da
+FragTolerance=20ppm
+
+# Enzyme=[NAME],[Cleavage/Teminus(N|C)]*
+# Specifies the enzyme rule for protein digestion. (Default rule conforms to Trypsin)
+# To ignore the enzyme specificity (for no-enzyme search), please use "*/*" rule (ex. 'Enzyme=NONE, */*').  
+# Enzyme=NONE, */*
+Enzyme=Trypsin, KR/C
+# Enzyme=LysN, K/N
+# Enzyme=LysC+AspN, K/C, D/N
+
+# NTT=[0|1|2|8|9]
+# Sets the number of allowed enzymatic termini. (Default value is 1)
+# 0: any, 1: semi-digested, 2: fully digested, 8: N-term specific, 9: C-term specific.
+# e.g., For trypsin, 0: non-tryptic, 1: semi-tryptic, 2: fully-tryptic.
+NTT=1
+
+# Specify modification-related parameters ################################################################################################################
+# NumMods=[1|2]
+# Sets the number of modifications per peptide. (Default value is 2)
+# 1 allows for one modification per peptide,
+# 2 allows for arbitrary number of modifications per peptide.
+NumMods=2
+
+# ModMassSize=[MIN],[MAX]
+# Sets the minimum/maximum modification size in dalton to consider. (Default values are -150,+350) 
+ModMassSize=-150,350
+
+# ModAnnotation=[1|2|3|4|5]
+# Sets the modification list to annotate unknown modification masses. (Default value is 2)
+# 1 allows for only MS-common modifications (50 modifications including oxidation, deamidation, phospho, and so forth. For more details, see README file),
+# 2 allows for all modifications from Unimod except for amino-acid substitutions (www.unimod.org: 2,407 modifications in Jan.2023),
+# 3 allows for only amino-acid substitutions,
+# 4 allows for 1 plus 3 (i.e., MS-common modifications + AA substitutions),
+# 5 allows for 2 plus 3 (i.e., all Unimod modifications including AA substitutions),
+# If unknown modification masses could not be annotated using the specified list, they will be presented in PSMs as UNKNOWN. 
+ModAnnotation=2
+
+# ModEnrichment=[0|1|2]
+# Sets an enriched modification. Default is 0 (NO enrichment).
+# 1: Phospho (i.e., use for phospho-enrichment data analysis), 2: Acetyl.
+ModEnrichment=
+
+# Mod=[RESIDUE(*|AMINO ACID)],[POSITION(ProtNterm|ProtCterm|Nterm|Cterm|any)],[MASS(in dalton)],[NAME].
+# Use * to consider any residue in RESIDUE part. RESIDUE should be a single character.
+# Specifies additional user-defined modifications if users know about unique or novel modifications.
+# Or if users don't want to take into account all possible AA substitutions (by setting ModAnnotation=3), 
+# set ModAnnotation=1 and add only a few AA substitutions by utilizing this parameter.
+# e.g., Mod=M, any, 15.994915, Oxidation
+# e.g., Mod=A, any, 28.006148, Lys->Arg
+# e.g., Mod=Q, N-term, -17.026549, PyroGluQ
+# e.g., Mod=*, Prot-N-term, 42.010565, Acetyl
+Mod=
+
+# ADD=[RESIDUE],[MASS]
+# Specifies the mass of a fixed (static) modification on a residue (e.g. cysteine alkylation and TMT-labeling)
+#ADD=N-Term, 229.162932
+# ADD=C-Term, 0.0000
+# ADD=A, 0.0000
+ADD=C, 57.021464
+# ADD=D, 0.0000
+# ADD=E, 0.0000
+# ADD=F, 0.0000
+# ADD=G, 0.0000
+# ADD=H, 0.0000
+# ADD=I, 0.0000
+#ADD=K, 229.162932
+# ADD=L, 0.0000
+# ADD=M, 0.0000
+# ADD=N, 0.0000
+# ADD=P, 0.0000
+# ADD=Q, 0.0000
+# ADD=R, 0.0000
+# ADD=S, 0.0000
+# ADD=T, 0.0000
+# ADD=V, 0.0000
+# ADD=W, 0.0000
+# ADD=Y, 0.0000
