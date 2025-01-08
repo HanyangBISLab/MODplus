@@ -8,7 +8,7 @@ MODplus supports identifying different modification types at multiple sites and 
 
 ## 1. Usage
 <pre>
-1) Requirement : deMix requires Java 1.7 or later. 
+1) Requirement : MODplus requires Java 1.7 or later. 
 	        Visit http://www.oracle.com/technetwork/java/index.html
 
 2) Command 
